@@ -13,37 +13,52 @@ body {
 	height: 100vh;
 }
 
-.hazey-border {
+/* general planet rules */
+.hazey-border,
+.hazey-border-inset {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	border: 0.5px solid rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+}
+
+.shadow {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 100%;
 	width: 100%;
 	height: 100%;
+	background: radial-gradient(circle at 15% 20%, hsla(0, 0%, 0%, 0), hsl(0, 0%, 0%));
 }
 
-.earth-border {
-	box-shadow: -10px -8px 25px 0 hsla(210, 100%, 75%, 0.95);
-}
-
-.moon-border {
-	box-shadow: -5px -4px 12.5px 0 hsla(210, 100%, 75%, 0.95);
-}
-
+/* earth */
 #earth {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 100%;
-	background: radial-gradient(circle at 10% 15%, hsl(200, 100%, 50%), hsl(240, 100%, 10%));
-	box-shadow: 20px 20px 100px 0 black;
-	width: 300px;
-	height: 300px;
+	background: radial-gradient(circle at 15% 20%, hsl(200, 100%, 50%), hsl(240, 100%, 10%));
+	box-shadow: 20px 20px 200px 0 black;
+	width: 500px;
+	height: 500px;
 }
 
+.earth-border {
+	box-shadow: -15px -12px 25px -5px hsla(210, 100%, 75%, 0.95);
+}
+
+.earth-border-inset {
+	box-shadow: inset 15px 12px 25px -15px hsla(210, 100%, 75%, 0.95);
+}
+
+/* moon */
 .moon {
 	position: absolute;
-	background: radial-gradient(circle at 10% 15%, hsl(0, 0%, 95%), hsl(0, 0%, 10%));
+	background: radial-gradient(circle at 15% 20%, hsl(0, 0%, 95%), hsl(0, 0%, 10%));
 	box-shadow: 20px 20px 50px 0 black;
 	border-radius: 100%;
 	width: 100px;
@@ -51,24 +66,33 @@ body {
 	animation: orbit 10s ease-in-out infinite both;
 }
 
+.moon-border {
+	box-shadow: -3px -2.4px 5px -1px hsla(210, 100%, 75%, 0.95);
+}
+
+.moon-border-inset {
+	box-shadow: inset 3px 2.4px 5px -3px hsla(210, 100%, 75%, 0.95);
+}
+
+/* animations */
 @keyframes orbit {
 	from {
-		transform: translate(300px, -100px);
+		transform: translate(400px, -150px);
 		z-index: 1;
 	}
 
 	50% {
-		transform: translate(-300px, 100px);
+		transform: translate(-400px, 150px);
 		z-index: 1;
 	}
 
 	51% {
-		transform: translate(-300px, 100px);
+		transform: translate(-400px, 150px);
 		z-index: -1;
 	}
 
 	to {
-		transform: translate(300px, -100px);
+		transform: translate(400px, -150px);
 		z-index: -1;
 	}
 }
